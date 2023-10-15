@@ -1,0 +1,2 @@
+module AllnewsHelper
+end

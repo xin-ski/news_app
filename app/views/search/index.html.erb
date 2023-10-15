@@ -1,0 +1,29 @@
+<!-- app/views/news_search/index.html.erb -->
+
+<h1>ニュース検索</h1>
+
+<%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag :search_keyword, @search_keyword, placeholder: 'キーワードを入力' %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+<% if @search_results.any? %>
+  <h2>検索結果:</h2>
+  <ul>
+    <% @search_results.each do |category, results| %>
+      <h3>カテゴリ: <%= category %></h3>
+      <ul>
+        <% results.each do |result| %>
+          <li>
+            <a href="<%= result['URL'] %>"><%= result['Title'] %></a>
+            <p><%= result['Description'] %></p>
+          </li>
+        <% end
+        %>
+      </ul>
+    <% end
+    %>
+  </ul>
+<% else %>
+  <p>検索結果はありません。</p>
+<% end %>

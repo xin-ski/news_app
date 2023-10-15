@@ -1,0 +1,19 @@
+<!-- app/views/top/news.html.erb -->
+<h1>All News</h1>
+<%= link_to "TOP", root_path %>
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>URL</th>
+  </tr>
+  <% @news.each do |news| %>
+    <tr>
+      <td><%= news[:category] %></td>
+      <td><%= news[:title] %></td>
+      <td><%= news[:description] %></td>
+      <td><%= link_to 'Read More', news[:url] %></td>
+    </tr>
+  <% end %>
+</table>
