@@ -1,0 +1,24 @@
+<!-- app/views/keyword/index.html.erb -->
+<h1>キーワードアンケート</h1>
+<%= link_to "TOP", root_path %>
+<%= form_tag(keyword_save_survey_path, method: :post) do %>
+  <table>
+    <tr>
+      <% KeywordController::KEYWORDS.each_with_index do |keyword, index| %>
+        <td>
+          <label>
+            <%= check_box_tag("keywords[]", keyword) %>
+            <%= keyword %>
+          </label>
+        </td>
+        <% if (index + 1) % 5 == 0 %>
+          </tr><tr> <!-- 5個ごとに新しい行を開始 -->
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+
+  <%= submit_tag("送信") %>
+  <p><h5><%= notice %></h5></p>
+<% end %>
+

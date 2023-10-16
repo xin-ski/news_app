@@ -1,7 +1,7 @@
 <!-- app/views/news_search/index.html.erb -->
 
 <h1>ニュース検索</h1>
-
+<%= link_to "TOP", root_path %>
 <%= form_tag(search_path, method: :get) do %>
   <%= text_field_tag :search_keyword, @search_keyword, placeholder: 'キーワードを入力' %>
   <%= submit_tag '検索' %>

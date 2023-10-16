@@ -1,0 +1,14 @@
+<h1>カテゴリアンケート</h1>
+<%= link_to "TOP", root_path %>
+<%= form_tag(survey_feedback_path, method: :post) do %>
+  <h2>カテゴリ選択</h2>
+  <% categories = ["business", "entertainment", "health","general", "science", "sports", "technology"] %>
+  <% categories.each do |category| %>
+    <label>
+      <%= check_box_tag("categories[]", category) %>
+      <%= category.humanize %>
+    </label>
+  <% end %>
+
+  <%= submit_tag("送信") %>
+<% end %>

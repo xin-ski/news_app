@@ -1,7 +1,7 @@
 require 'csv'
 
 class SearchController < ApplicationController
-  def index
+  def search
     @search_keyword = params[:search_keyword]
     if @search_keyword.present?
       @search_results = search_news(@search_keyword)
@@ -13,7 +13,7 @@ class SearchController < ApplicationController
   private
 
   def search_news(keyword)
-    categories = ["business", "entertainment", "health", "science", "sports", "technology"]
+    categories = ['business', 'entertainment', 'health', 'general', 'science', 'sports', 'technology']
     search_results = {}
 
     categories.each do |category|

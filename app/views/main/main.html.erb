@@ -1,0 +1,32 @@
+<!-- app/views/survey/index.html.erb -->
+
+<h1>メインページ</h1>
+
+<h2>Good ニュース</h2>
+<ul>
+  <% @good_news.each do |category, news_items| %>
+    <li>
+      <h3><%= category %></h3>
+      <% news_items.each do |news| %>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Bad ニュース</h2>
+<ul>
+  <% @bad_news.each do |category, news_items| %>
+    <li>
+      <h3><%= category %></h3>
+      <% news_items.each do |news| %>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+

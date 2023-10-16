@@ -1,17 +1,16 @@
 require 'net/http'
 require 'json'
-require 'csv' # CSVモジュールを読み込み
-
+require 'csv'
 
 class TopController < ApplicationController
   before_action :save_news_to_csv, only: [:index]
 
   def top
-    categories = ['business', 'entertainment', 'health', 'science', 'sports', 'technology']
+    categories = ['business', 'entertainment', 'health', 'general', 'science', 'sports', 'technology']
     
     # ニュースAPIのエンドポイント
     api_key = 'aafeb0839125431688440b7346e9d2dc' # ご自身のAPIキーに置き換えてください
-    base_endpoint = "https://newsapi.org/v2/top-headlines?country=&apiKey=#{api_key}"
+    base_endpoint = "https://newsapi.org/v2/top-headlines?country=jp&apiKey=#{api_key}"
     
     categories.each do |category|
       endpoint = "#{base_endpoint}&category=#{category}"
