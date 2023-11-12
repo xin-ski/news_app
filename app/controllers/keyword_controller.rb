@@ -53,6 +53,6 @@ class KeywordController < ApplicationController
       csv_data.each { |row| csv << row }
     end
 
-    redirect_to keyword_path, notice: "アンケートが送信されました。"
+    redirect_to root_path, notice: "アンケートが送信されました。"
   end
 end

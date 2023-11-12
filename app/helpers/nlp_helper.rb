@@ -1,0 +1,2 @@
+module NlpHelper
+end

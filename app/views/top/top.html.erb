@@ -1,4 +1,13 @@
 
-<br>TOPページ<br>
-<!-- app/views/top/top.html.erb -->
-メイン|<%= link_to "検索", search_path %>|<%= link_to "全てのニュース", allnews_path %>|<%= link_to "アンケート", survey_path %>
+<br>TOPページ<br><%= link_to 'ニュースの取得または更新', manual_update_path, class: 'btn btn-primary' %> |
+<%= link_to "アンケート", survey_path %> |
+<%= link_to "GB振り分け",categorize_news_feedback_path %> |
+<%= link_to "GGGB振り分け",test_categorize_and_save_news_path, method: :post %><br><br>
+
+
+<%= link_to "メイン", main_path %> |
+<%= link_to "メイン2", main2_path %> |
+<%= link_to "検索", search_path %> |
+<%= link_to "全てのニュース", allnews_path %>
+<p><h5><%= notice %></h5></p>
+<!-- app/views/top/index.html.erb -->

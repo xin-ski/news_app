@@ -1,0 +1,72 @@
+<h1>Good News with Keyword</h1>
+
+<h2>興味のあるカテゴリ and 興味のあるキーワード</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @good_news.each do |news| %>
+      <tr>
+        <td><%= news['Category'] %></td>
+        <td><%= news['Title'] %></td>
+        <td><%= news['Description'] %></td>
+        <td><a href="<%= news['URL'] %>">詳細を見る</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>興味のないカテゴリ and 興味のあるキーワード</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bad_news.each do |news| %>
+      <tr>
+        <td><%= news['Category'] %></td>
+        <td><%= news['Title'] %></td>
+        <td><%= news['Description'] %></td>
+        <td><a href="<%= news['URL'] %>">詳細を見る</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+コントローラー
+# app/controllers/main2_controller.rb
+require 'csv'
+
+class Main2Controller < ApplicationController
+  def display_news_with_keyword
+    @good_news = load_news_with_keyword('public/csv/good_news_with_keyword.csv')
+    @bad_news = load_news_with_keyword('public/csv/bad_news_with_keyword.csv')
+  end
+
+  private
+
+  def load_news_with_keyword(csv_file_path)
+    news = []
+    
+    if File.exist?(csv_file_path)
+      data = CSV.read(csv_file_path, headers: true)
+
+      data.each do |row|
+        news << row.to_h
+      end
+    end
+
+    news
+  end
+end

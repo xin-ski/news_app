@@ -1,0 +1,22 @@
+<h1>Good News with Keyword</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% (@good_news + @bad_news).shuffle.each do |news| %>
+      <tr>
+        <td><%= news['Category'] %></td>
+        <td><%= news['Title'] %></td>
+        <td><%= news['Description'] %></td>
+        <td><a href="<%= news['URL'] %>">詳細を見る</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

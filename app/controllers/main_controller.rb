@@ -1,13 +1,16 @@
 require 'csv'
+# Ruby on Railsコントローラ内でPythonスクリプトを呼び出す例
 class MainController < ApplicationController
+  
   def main
     @good_categories, @bad_categories = categorize_feedback
     @good_news = load_news_for_categories(@good_categories, 2)
     @bad_news = load_news_for_categories(@bad_categories, 2)
   end
+  
 
   private
-
+  
   def categorize_feedback
     # feedback.csv ファイルを読み込み、好みのカテゴリと好みでないカテゴリを分類
     feedback_data = CSV.read('public/csv/feedback/feedback.csv', headers: true)
@@ -53,5 +56,31 @@ class MainController < ApplicationController
     end
     news
   end
+  
+  def save_to_csv
+    @good_news = @good_news
+    @bad_news =  @bad_news
 
+    # データをCSVファイルに書き込む
+    CSV.open('public/csv/saved_data.csv', 'w') do |csv|
+      # ヘッダー行を書き込む（必要に応じて）
+      csv << ['Category', 'Title', 'Description', 'URL']
+
+      # データ行を書き込む
+      @good_news.each do |category, news_items|
+        news_items.each do |news|
+          csv << [category, news['Title'], news['Description'], news['URL']]
+        end
+      end
+
+      @bad_news.each do |category, news_items|
+        news_items.each do |news|
+          csv << [category, news['Title'], news['Description'], news['URL']]
+        end
+      end
+    end
+
+    # 成功メッセージなどの応答を返す（必要に応じて）
+    redirect_to main_path, notice: 'データがCSVファイルに保存されました'
+  end
 end

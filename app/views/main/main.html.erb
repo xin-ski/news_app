@@ -1,8 +1,8 @@
 <!-- app/views/survey/index.html.erb -->
 
 <h1>メインページ</h1>
-
-<h2>Good ニュース</h2>
+<%= link_to "TOP", root_path %>
+<h2>興味のあるニュース</h2>
 <ul>
   <% @good_news.each do |category, news_items| %>
     <li>
@@ -16,7 +16,8 @@
   <% end %>
 </ul>
 
-<h2>Bad ニュース</h2>
+
+<h2>興味がないニュース</h2>
 <ul>
   <% @bad_news.each do |category, news_items| %>
     <li>
@@ -29,4 +30,3 @@
     </li>
   <% end %>
 </ul>
-
