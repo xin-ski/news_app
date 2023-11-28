@@ -1,48 +1,29 @@
-<h1>Good News with Keyword</h1>
+<!-- app/views/main2/display_news_with_keyword.html.erb -->
+<h1>表示2</h1>
 
 <h2>興味のあるカテゴリ and 興味のあるキーワード</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @good_news.each do |news| %>
-      <tr>
-        <td><%= news['Category'] %></td>
-        <td><%= news['Title'] %></td>
-        <td><%= news['Description'] %></td>
-        <td><a href="<%= news['URL'] %>">詳細を見る</a></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @good_news.each do |news| %>
+    <li>
+    <h3><%= news['Category'] %></h3>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+    </li>
+  <% end %>
+</ul>
 
-<h2>興味のないカテゴリ and 興味のあるキーワード</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bad_news.each do |news| %>
-      <tr>
-        <td><%= news['Category'] %></td>
-        <td><%= news['Title'] %></td>
-        <td><%= news['Description'] %></td>
-        <td><a href="<%= news['URL'] %>">詳細を見る</a></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>興味のあるカテゴリ and 興味のあるキーワード</h2>
+<ul>
+  <% @bad_news.each do |news| %>
+    <li>
+    <h3><%= news['Category'] %></h3>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+    </li>
+  <% end %>
+</ul>
 
 コントローラー
 # app/controllers/main2_controller.rb

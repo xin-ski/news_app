@@ -1,6 +1,7 @@
 <!-- app/views/keyword/index.html.erb -->
 <h1>キーワードアンケート</h1>
-<%= link_to "TOP", root_path %>
+<%= link_to "TOP", root_path %><br>
+<h4>気になるキーワードを選択してください</h4>
 <%= form_tag(keyword_save_survey_path, method: :post) do %>
   <table>
     <tr>
@@ -17,7 +18,8 @@
       <% end %>
     </tr>
   </table>
-  <h5>※少しでも気になるものがあればチェックを入れてください</h5>
+  <h5>※少しでも気になるものがあればチェックを入れてください<br>
+  　数が少ないとニュースが表示されない場合があります<h5>
 
   <%= submit_tag("送信") %>
 <% end %>

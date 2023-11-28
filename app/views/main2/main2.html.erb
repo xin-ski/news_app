@@ -1,12 +1,26 @@
-<h1>GG BG 交互表</h1>
-<%= link_to "TOP", root_path %>
+<!-- app/views/main2/display_news_with_keyword.html.erb -->
+<h1>表示2</h1>
+
+<h2>興味のあるカテゴリ and 興味のあるキーワード</h2>
 <ul>
-<% @combined_news.each do |news| %>
-  <li>
+  <% @good_news.each do |news| %>
+    <li>
     <h3><%= news['Category'] %></h3>
-    <h4><%= news['Title'] %></h4>
-    <p><%= news['Description'] %></p>
-    <a href="<%= news['URL'] %>">詳細を見る</a>
-  </li>
-<% end %>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+    </li>
+  <% end %>
+</ul>
+
+<h2>興味のあるカテゴリ and 興味のあるキーワード</h2>
+<ul>
+  <% @bad_news.each do |news| %>
+    <li>
+    <h3><%= news['Category'] %></h3>
+        <h4><%= news['Title'] %></h4>
+        <p><%= news['Description'] %></p>
+        <a href="<%= news['URL'] %>">詳細を見る</a>
+    </li>
+  <% end %>
 </ul>

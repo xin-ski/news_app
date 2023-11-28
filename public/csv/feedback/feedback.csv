@@ -1,8 +1,8 @@
 category,survey
-business,1
+business,0
 entertainment,1
 health,0
-general,1
-science,0
-sports,0
-technology,0
+general,0
+science,1
+sports,1
+technology,1

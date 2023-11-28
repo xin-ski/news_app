@@ -2,6 +2,7 @@
 <%= link_to "TOP", root_path %>
 <%= form_tag(survey_feedback_path, method: :post) do %>
   <h2>カテゴリ選択</h2>
+  <h4>気になるカテゴリを選択してください</h4>
   <% categories = ["business", "entertainment", "health","general", "science", "sports", "technology"] %>
   <% categories.each do |category| %>
     <label>
@@ -9,6 +10,8 @@
       <%= category.humanize %>
     </label>
   <% end %>
+  <h5>※少しでも気になるものがあればチェックを入れてください<br>
+  　数が少ないとニュースが表示されない場合があります<h5>
 
   <%= submit_tag("送信") %>
 <% end %>
