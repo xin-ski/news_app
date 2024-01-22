@@ -11,7 +11,7 @@ class AllnewsController < ApplicationController
           category: category,
           url: row['URL']
         }
+      end
+    end
   end
-end
-end
 end

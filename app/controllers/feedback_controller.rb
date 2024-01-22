@@ -1,4 +1,4 @@
-# app/controllers/feedback_controller.rb
+#app/controllers/feedback_controller.rb
 #goodカテゴリとbadカテゴリ分けcsvへ保存
 class FeedbackController < ApplicationController
   def categorize_news
